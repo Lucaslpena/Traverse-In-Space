@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import '../styles/globals.css'
+import '../styles/globals.scss'
 import 'react-notion-x/src/styles.css'
 import { IdProvider } from '@radix-ui/react-id';
 

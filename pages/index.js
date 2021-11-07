@@ -29,20 +29,23 @@ export default function Home({data}) {
 
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Traverse in Space
-        </h1>
 
-        <p className={styles.description}>
-          Emergent technologies, designed systems, and our social brain are part of a vast landscape that interlinks current and future value creation.
-          <br /><br />
-          Through intuitive insights, axiomatic explorations, living ideas, and engineered renders, this space traverses that landscape as a developmental and meta-developmental synthesis within that landscape—swhat I call my practice.
-          <br /><br />
-          Below are some topics to be explored.
-        </p>
+        <section style={styles.leftDrawer}>
+          <h1 className={styles.title}>
+            Traverse in Space
+          </h1>
 
-        { generateRenders() }
-
+          <p className={styles.description}>
+            Emergent technologies, designed systems, and our social brain are part of a vast landscape that interlinks current and future value creation.
+            <br /><br />
+            Through intuitive insights, axiomatic explorations, living ideas, and engineered renders, this space traverses that landscape as a developmental and meta-developmental synthesis within that landscape—swhat I call my practice.
+            <br /><br />
+            Presented are select concepts to soon be explored.
+          </p>
+        </section>
+        <section className={styles.rightDrawer}>
+          { generateRenders() }
+        </section>
       </main>
 
       <footer className={styles.footer}>

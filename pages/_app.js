@@ -6,15 +6,24 @@ import { IdProvider } from '@radix-ui/react-id';
 
 function App({ Component, pageProps }) {
   return(
-    <IdProvider>
+    <>
+
       <Head>
         <title>Traverse in Space</title>
         {/* todo -- meta  tags here*/}
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="preload"
+          href="/fonts/Urbanist/Urbanist-VariableFont_wght.ttf"
+          as="font"
+          crossOrigin=""
+        />
       </Head>
-      <Component {...pageProps} />
-    </IdProvider>
+      <IdProvider>
+        <Component {...pageProps} />
+      </IdProvider>
+    </>
   )
 }
 

@@ -1,0 +1,14 @@
+@mixin breakpoint() {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+
+.Form{
+  @include breakpoint() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 4rem;
+  }
+}

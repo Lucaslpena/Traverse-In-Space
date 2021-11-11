@@ -6,7 +6,11 @@ import { getPageTitle, getAllPagesInSpace } from 'notion-utils'
 import { Collection, CollectionRow, NotionRenderer } from 'react-notion-x'
 
 import  { Client } from "@notionhq/client";
-import {RenderItemRow} from '../components';
+import {RenderItemRow, SubscribeForm} from '../components';
+
+import { InfoCircledIcon } from '@radix-ui/react-icons'
+
+
 export default function Home({data}) {
   console.log(data)
   const generateRenders = () => {
@@ -25,12 +29,11 @@ export default function Home({data}) {
     )
   }
   return (
-    <div className={styles.container}>
+    <main>
 
+      <div className={styles.container}>
 
-      <main className={styles.main}>
-
-        <section style={styles.leftDrawer}>
+        <section className={styles.leftDrawer}>
           <h1 className={styles.title}>
             Traverse in Space
           </h1>
@@ -38,20 +41,23 @@ export default function Home({data}) {
           <p className={styles.description}>
             Emergent technologies, designed systems, and our social brain are part of a vast landscape that interlinks current and future value creation.
             <br /><br />
-            Through intuitive insights, axiomatic explorations, living ideas, and engineered renders, this space traverses that landscape as a developmental and meta-developmental synthesis within that landscape—swhat I call my practice.
+            Through intuitive insights, axiomatic explorations, living ideas, and engineered renders, this space traverses that landscape as a developmental and meta-developmental synthesis within that landscape—what I call my practice.
             <br /><br />
-            Presented are select concepts to soon be explored.
+            <InfoCircledIcon/> Presented are select concepts <em>soon</em> to be explored.
           </p>
+
+          <SubscribeForm />
+
         </section>
         <section className={styles.rightDrawer}>
           { generateRenders() }
         </section>
-      </main>
+      </div>
 
       <footer className={styles.footer}>
         <a href="https://lucaslorenzo.digital/" target="_blank" rel="noopener noreferrer">A project by Lucas Lorenzo Pena</a>
       </footer>
-    </div>
+    </main>
   )
 }
 

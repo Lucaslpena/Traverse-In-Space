@@ -5,10 +5,10 @@ import styles from './RenderItem.module.scss'
 
 const StyledLabel = styled(LabelPrimitive.Root, {
   fontSize: 14,
-  fontWeight: 500,
+  fontVariationSettings: `"wght" 650`,
   color: blackA.blackA12,
   userSelect: 'none',
-  letterSpacing: 2
+  letterSpacing: 2,
 });
 
 

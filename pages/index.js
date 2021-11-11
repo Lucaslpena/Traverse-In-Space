@@ -41,7 +41,7 @@ export default function Home({data}) {
           <p className={styles.description}>
             Emergent technologies, designed systems, and our social brain are part of a vast landscape that interlinks current and future value creation.
             <br /><br />
-            Through intuitive insights, axiomatic explorations, living ideas, and engineered renders, this space traverses that landscape as a developmental and meta-developmental synthesis within that landscape—what I call my practice.
+            Through intuitive insights, axiomatic explorations, living ideas, and engineered renders, this space traverses that landscape as a developmental and meta-developmental synthesis—what I call my practice.
             <br /><br />
             <InfoCircledIcon/> Presented are select concepts <em>soon</em> to be explored.
           </p>

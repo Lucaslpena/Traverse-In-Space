@@ -4,7 +4,7 @@ import * as LabelPrimitive from '@radix-ui/react-label';
 import {InputField} from './index';
 import { RocketIcon } from '@radix-ui/react-icons'
 import {useState} from 'react';
-import styles from './SubscribeForm.module.scss'
+import styles from '../styles/SubscribeForm.module.scss'
 
 const FormSubmit = styled('button',{
   all: 'unset',

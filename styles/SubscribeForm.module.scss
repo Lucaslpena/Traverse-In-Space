@@ -1,11 +1,6 @@
-@mixin breakpoint() {
-  @media (max-width: 1023px) {
-    @content;
-  }
-}
-
+@import "theme";
 .Form{
-  @include breakpoint() {
+  @include media("<=1023px"){
     display: flex;
     align-items: center;
     justify-content: center;

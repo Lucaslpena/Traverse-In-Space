@@ -1,3 +1,5 @@
+@import '_vars';
+
 .renderTitles{
   width: 100%;
   padding: 1rem 0;
@@ -8,7 +10,7 @@
   p{
     opacity: 0.4;
     line-height: 1.5;
-    font-size: 1.5rem;
+    font-size: 1.414rem;
     max-width: 55ex;
     margin: .5rem 0;
   }

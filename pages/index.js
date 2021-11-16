@@ -44,7 +44,7 @@ export default function Home({data}) {
             Through intuitive insights, axiomatic explorations, living ideas, and engineered renders, this space traverses that landscape as a developmental and meta-developmental synthesis—what I call my practice.
             <br /><br />
             <InfoCircledIcon/> Presented are select concepts <em>soon</em> to be explored.
-          </p>
+        </p>
 
           <SubscribeForm />
 

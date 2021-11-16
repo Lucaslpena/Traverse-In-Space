@@ -6,21 +6,23 @@ import * as LabelPrimitive from '@radix-ui/react-label';
 // Todo -- children prop doesnt uniformly fit here
 
 const StyledLabel = styled(LabelPrimitive.Root, {
-  fontSize: 14,
+  fontSize: '14',
   fontVariationSettings: `"wght" 650`,
   color: blackA.blackA12,
   userSelect: 'none',
+  gridColumn: '1 / 3'
 });
 
 const StyledContainer = styled('div', {
   display: 'grid',
-  grid: 'min-content 1fr / 320px 40px',
-  gridRowGap: '.5rem'
+  grid: 'min-content 1fr / auto 40px',
+  gridRowGap: '.5rem',
+  width: '100%'
 })
 
 const Input = styled('input', {
   all: 'unset',
-  width: 300,
+  width: 'auto',
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',

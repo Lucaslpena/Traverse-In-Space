@@ -1,17 +1,10 @@
-@mixin breakpoint() {
-  @media (max-width: 1023px) {
-    @content;
-  }
-}
-
-
+@import "theme";
 
 .container {
   padding: 4rem 0;
   flex: 1;
 
-  //@media (max-width: 750px) {
-    @include breakpoint(){
+  @include media("<=1023px"){
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,11 +16,12 @@
   justify-items: center;
 }
 
+
 .leftDrawer{
   align-self: flex-start;
   position: sticky;
   top: 4rem;
-  @include breakpoint(){
+  @include media("<=1023px"){
     position: relative;
     top: 0;
   }
@@ -58,12 +52,11 @@
 .title {
   margin: 0;
   line-height: 1.15;
-  font-size: 4rem;
 }
 
 .description {
   line-height: 1.25;
-  font-size: 1.25rem;
+  //font-size: 1.25rem;
   max-width: 55ex;
   padding: 2rem 0;
 }

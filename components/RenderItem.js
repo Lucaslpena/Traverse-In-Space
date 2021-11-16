@@ -1,7 +1,7 @@
 import { styled } from '@stitches/react';
 import { blackA } from '@radix-ui/colors';
 import * as LabelPrimitive from '@radix-ui/react-label';
-import styles from './RenderItem.module.scss'
+import styles from '../styles/RenderItem.module.scss'
 
 const StyledLabel = styled(LabelPrimitive.Root, {
   fontSize: 14,

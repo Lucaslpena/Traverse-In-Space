@@ -24,7 +24,7 @@ export const RenderItemRow = ({title, number, link, published, updated, ...props
       {...props}
       className={styles.renderTitles}
     >
-      <StyledLabel>n.{pad(number, 3)}</StyledLabel>
+      <StyledLabel>w.{pad(number, 3)}</StyledLabel>
       <div>
       <p>{title}</p>
       {/*/!*{published ? *!/*/}

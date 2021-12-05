@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style>
+        @media (prefers-color-scheme: dark){
+        rect, line { stroke: #fff !important; }
+        ellipse: { fill: #fff !important; }
+        }
+    </style>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Post" transform="translate(-2094.000000, -1276.000000)">
+            <g id="Group-19" transform="translate(2094.510450, 1276.510000)">
+                <g id="Group-14-Copy" transform="translate(11.487641, 11.487641) rotate(-315.000000) translate(-11.487641, -11.487641) translate(3.363302, 3.366002)">
+                    <rect id="Rectangle" stroke="#4C4C4C" x="0.506036586" y="0.500636558" width="11" height="11"></rect>
+                    <ellipse id="Oval" fill="#4C4C4C" style="mix-blend-mode: multiply;" cx="8.19936218" cy="8.21469728" rx="4.51486537" ry="4.5"></ellipse>
+                    <rect id="Rectangle" stroke="#4C4C4C" x="4.74867727" y="4.74327725" width="11" height="11"></rect>
+                    <g id="Group-18" transform="translate(0.000000, 0.000000)"></g>
+                    <line x1="5.11309333" y1="5.1076933" x2="0.535018866" y2="0.529618838" id="Line-16-Copy" stroke="#4C4C4C" stroke-linejoin="bevel"></line>
+                    <line x1="15.7196951" y1="15.714295" x2="11.4770544" y2="11.4716543" id="Line-16-Copy-3" stroke="#4C4C4C" stroke-linejoin="bevel"></line>
+                </g>
+                <line x1="19.4895499" y1="8.99" x2="19.4895499" y2="13.99" id="Line-19" stroke="#4C4C4C" stroke-linecap="square"></line>
+                <line x1="3.48954989" y1="8.99" x2="3.48954989" y2="13.99" id="Line-19" stroke="#4C4C4C" stroke-linecap="square"></line>
+            </g>
+        </g>
+    </g>
+</svg>

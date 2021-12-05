@@ -8,7 +8,7 @@ import { Collection, CollectionRow, NotionRenderer } from 'react-notion-x'
 import  { Client } from "@notionhq/client";
 import {RenderItemRow, SubscribeForm} from '../components';
 
-import { InfoCircledIcon } from '@radix-ui/react-icons'
+import { InfoCircledIcon, ChevronRightIcon } from '@radix-ui/react-icons'
 
 
 export default function Home({data}) {
@@ -41,10 +41,15 @@ export default function Home({data}) {
           <p className={styles.description}>
             Emergent technologies, designed systems, and our social brain are part of a vast landscape that interlinks current and future value creation.
             <br /><br />
-            Through intuitive insights, axiomatic explorations, living ideas, and engineered renders, this space traverses that landscape as a developmental and meta-developmental synthesis—what I call my practice.
+            This space:
+            <br/>
+            <span><ChevronRightIcon /> traverses that landscape through establishing meta-meaning and axiomatic explorations</span>
+            <br />
+            <span><ChevronRightIcon />is a system representative of value creation within my practice—the meta-development of living ideas</span>
+
             <br /><br />
             <InfoCircledIcon/> Presented are select concepts <em>soon</em> to be explored.
-        </p>
+          </p>
 
           <SubscribeForm />
 

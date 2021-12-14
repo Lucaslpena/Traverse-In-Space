@@ -39,7 +39,10 @@ export default function Home({data}) {
     <main>
       <div className={styles.container}>
 
-        {/*<section className={styles.leftDrawer}>*/}
+        <h1 className={styles.title}>
+          Traverse <span>in Space</span>
+        </h1>
+
         <p className={styles.description}>
           Emergent technologies, designed systems, and our social brain are part of a vast landscape that interlinks current and future value creation.
           <br /><br />
@@ -54,29 +57,13 @@ export default function Home({data}) {
             </span>
         </p>
 
-        <h1 className={styles.title}>
-          Traverse in Space
-        </h1>
+        <p className={styles.description}>
+          Starting in 2022 this space will regularly communicate new living ideas and invite practitioners in intersubjective spaces to engage in a monthly discussion/workshop cadence around a selected living idea.
+        </p>
 
+        <SubscribeForm />
 
-        {/*<p className={styles.description}>*/}
-        {/*  Starting in 2022 this space will regularly communicate new living ideas and invite practitioners in intersubjective spaces to engage in a monthly discussion/workshop cadence around a selected living idea.*/}
-        {/*</p>*/}
-
-        {/*<SubscribeForm />*/}
-
-        {/*</section>*/}
-        {/*<section className={styles.rightDrawer}>*/}
         { generateRenders() }
-        {/*</section>*/}
-
-        <div>
-          <p className={styles.description}>
-            Starting in 2022 this space will regularly communicate new living ideas and invite practitioners in intersubjective spaces to engage in a monthly discussion/workshop cadence around a selected living idea.
-          </p>
-
-          <SubscribeForm />
-        </div>
       </div>
 
       {/*<footer className={styles.footer}>*/}

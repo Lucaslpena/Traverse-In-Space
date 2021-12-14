@@ -25,6 +25,6 @@ export const TopBar = () => (
           <path stroke="#4C4C4C" strokeLinecap="square" d="M20 9.5v5M4 9.5v5" />
         </g>
       </svg>
-    <a href={"https://www.lucaslorenzo.digital"} target="_blank">a project by Lucas Lorenzo Pena</a>
+    <a href={"https://www.lucaslorenzo.digital"} target="_blank">by Lucas Lorenzo Pena</a>
   </div>
 )

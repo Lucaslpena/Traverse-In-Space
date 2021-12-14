@@ -33,7 +33,7 @@ export const SubscribeForm = ({title, number, link, published, updated, ...props
       {/*<input type="email" name="email" id="bd-email"/>*/}
       <InputField
         type={'email'}
-        label={'Subscribe for updates when this space goes live'}
+        label={'Subscribe for future updates'}
         id={'bd-email'}
         name={'email'}
         placeholder={"ex. Your@email.com"}

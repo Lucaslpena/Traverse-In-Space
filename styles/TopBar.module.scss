@@ -1,0 +1,14 @@
+@import '_vars';
+.TopBar{
+  box-sizing: border-box;
+  height: $topbar;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem $page-gutter;
+  border-bottom: 1px solid #eaeaea;
+  svg{
+    height: 100%;
+  }
+}

@@ -2,6 +2,7 @@ import Head from 'next/head'
 import '../styles/globals.scss'
 import 'react-notion-x/src/styles.css'
 import { IdProvider } from '@radix-ui/react-id';
+import {TopBar} from '../components';
 
 
 function App({ Component, pageProps }) {
@@ -27,7 +28,9 @@ function App({ Component, pageProps }) {
         />
       </Head>
       <IdProvider>
-        <Component {...pageProps} />
+
+          <TopBar />
+          <Component {...pageProps} />
       </IdProvider>
     </>
   )

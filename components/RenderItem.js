@@ -2,6 +2,7 @@ import { styled } from '@stitches/react';
 import { blackA } from '@radix-ui/colors';
 import * as LabelPrimitive from '@radix-ui/react-label';
 import styles from '../styles/RenderItem.module.scss'
+import {useState} from 'react';
 
 const StyledLabel = styled(LabelPrimitive.Root, {
   fontSize: 14,
@@ -11,7 +12,6 @@ const StyledLabel = styled(LabelPrimitive.Root, {
   letterSpacing: 2,
 });
 
-
 function pad(num, size) {
   num = num.toString();
   while (num.length < size) num = "0" + num;
@@ -19,12 +19,20 @@ function pad(num, size) {
 }
 
 export const RenderItemRow = ({title, number, link, published, updated, ...props}) => {
+  const [isHovering, setIsHovering] = useState(false)
   return(
     <section
       {...props}
       className={styles.renderTitles}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
     >
-      <StyledLabel>w.{pad(number, 3)}</StyledLabel>
+      <StyledLabel>
+        <span className={`${styles.ExpandingLabel} ${isHovering ? styles.ExpandedLabel : ''}`}>
+          li
+        </span>
+        .{pad(number, 3)}
+      </StyledLabel>
       <div>
       <p>{title}</p>
       {/*/!*{published ? *!/*/}

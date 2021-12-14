@@ -1,4 +1,5 @@
 @import "_vendor.mixins";
+@import '_vars';
 @font-face {
   font-family: "Urbanist";
   src: url("/fonts/Urbanist/Urbanist-VariableFont_wght.ttf");
@@ -21,14 +22,14 @@ body {
 }
 
 main{
-  min-height: 100vh;
+  min-height: calc( 100vh - #{$topbar});
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 4rem;
+  padding: 0 $page-gutter;
   @include media("<=tablet"){
-    padding: 0 2rem;
+    padding: 0 $page-gutter-mobile;
   }
 }
 
@@ -62,7 +63,7 @@ small, .text_small {
 }
 p{
   //@extend h5;
-  font-variation-settings: 'wght' 300;
+  font-variation-settings: 'wght' 375;
   letter-spacing: .5px;
   font-size: clamp(100%, 3.5vw, 1.414rem);
   font-size: min(max(1rem, 3.5vw), 1.414rem);

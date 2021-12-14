@@ -2,6 +2,7 @@
 
 .renderTitles{
   width: 100%;
+  max-width: 320px;
   padding: 1rem 0;
   border-bottom: 1px solid #eaeaea;
   &:last-of-type{
@@ -13,5 +14,26 @@
     font-size: 1.414rem;
     max-width: 55ex;
     margin: .5rem 0;
+  }
+}
+
+.ExpandingLabel{
+  display: inline;
+  &:after{
+    width: 0;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: text-bottom;
+    transition: .2s linear;
+    content: 'ving idea';
+    white-space: nowrap;
+  }
+  &:hover:after{
+    width: 9ch;
+  }
+}
+.ExpandedLabel{
+  &:after{
+    width: 9ch;
   }
 }

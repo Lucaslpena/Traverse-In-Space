@@ -48,17 +48,15 @@ export default function Home({data}) {
           <br /><br />
           This space:
           <span>
-              <ChevronRightIcon />
-              establishing meta-meaning and axiomatic exploration of selected tangents within this landscape
+              <ChevronRightIcon />&nbsp;establishes meta-meaning and axiomatic exploration of selected tangents within this landscape
             </span>
           <span>
-              <ChevronRightIcon />
-              is a system representing value creation within my practice—the development of living ideas.
+              <ChevronRightIcon />&nbsp;is a system representing value creation within my practice—the development of living ideas
             </span>
         </p>
 
         <p className={styles.description}>
-          Starting in 2022 this space will regularly communicate new living ideas and invite practitioners in intersubjective spaces to engage in a monthly discussion/workshop cadence around a selected living idea.
+          Starting in 2022, this space will regularly communicate new living ideas and invite practitioners in intersubjective spaces to engage in a monthly discussion/workshop around a selected living idea.
         </p>
 
         <SubscribeForm />

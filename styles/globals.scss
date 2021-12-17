@@ -15,6 +15,12 @@ body {
   //font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-family: "Urbanist";
   font-variation-settings: 'wght' 375;
+  color: $font-color--dark !important;
+
+  background: transparent;
+  background-image: linear-gradient(to bottom right, $background-color1 0%, $background-color2 100%);
+  background-size: 500% 500%;
+  animation: backgroundAnimation $background-transition--time $animation-curve infinite;
 }
 
 * {
@@ -44,19 +50,15 @@ h1 {
 }
 h2 {
   font-size: 3.998rem;
-  background: greenyellow;
 }
 h3 {
   font-size: 2.827rem;
-  background: greenyellow;
 }
 h4 {
   font-size: 1.999rem;
-  background: greenyellow;
 }
 h5 {
   font-size: 1.414rem;
-  background: greenyellow;
 }
 small, .text_small {
   font-size: 0.707rem;
@@ -71,4 +73,10 @@ p{
 a {
   color: inherit;
   text-decoration: none;
+}
+
+::selection{
+  background: #333;
+  color: #fff;
+  text-shadow: none;
 }

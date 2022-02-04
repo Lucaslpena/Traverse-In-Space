@@ -18,7 +18,7 @@ function pad(num, size) {
   return num;
 }
 
-export const RenderItemRow = ({title, number, link, published, updated, ...props}) => {
+export const RenderItemRow = ({title, number, link, published, updated, children, ...props}) => {
   const [isHovering, setIsHovering] = useState(false)
   return(
     <section
@@ -34,11 +34,21 @@ export const RenderItemRow = ({title, number, link, published, updated, ...props
         .{pad(number, 3)}
       </StyledLabel>
       <div>
-      <p>{title}</p>
-      {/*/!*{published ? *!/*/}
-      {/*<StyledLabel>Soon to be public</StyledLabel>*/}
-      {/*/!*}*!/*/}
+        <p>{title}</p>
+        {children}
+        {/*/!*{published ? *!/*/}
+        {/*<StyledLabel>Soon to be public</StyledLabel>*/}
+        {/*/!*}*!/*/}
       </div>
     </section>
+  )
+}
+
+export const ThumbnailRow = ({title, created, current = false, ...props}) => {
+  return(
+    <div className={styles.thumbnailTiles} {...props}>
+      <p>{title}</p>
+      <p>{created}</p>
+    </div>
   )
 }

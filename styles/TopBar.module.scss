@@ -7,11 +7,12 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: $border-width solid $border-color;
   //position: sticky;
   //top: 0;
   svg{
     height: 100%;
+    cursor: pointer;
   }
 
   @include media("<=880px") {

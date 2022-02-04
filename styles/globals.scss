@@ -13,9 +13,9 @@ body {
   padding: 0;
   margin: 0;
   //font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-family: "Urbanist";
+  font-family: "Urbanist" !important;
   font-variation-settings: 'wght' 375;
-  color: $font-color--dark !important;
+  color: $font-color--dark;
 
   background: transparent;
   background-image: linear-gradient(to bottom right, $background-color1 0%, $background-color2 100%);
@@ -43,36 +43,37 @@ main{
 // https://css-tricks.com/simplified-fluid-typography/
 // https://type-scale.com/ (augmented 4th)
 h1, h2, h3, h4, h5 {
-  line-height: 1.3;
+  line-height: 1.3 !important;
 }
 h1 {
-  font-size: clamp(100%, 3rem + 4vw, 5.653rem);
+  font-size: clamp(100%, 3rem + 4vw, 5.653rem) !important;
+  font-size: min(max(1rem, 3rem + 4vw), 5.653rem) !important;
 }
 h2 {
-  font-size: 3.998rem;
+  font-size: 3.998rem !important;
 }
 h3 {
-  font-size: 2.827rem;
+  font-size: 2.827rem !important;
 }
 h4 {
-  font-size: 1.999rem;
+  font-size: 1.999rem !important;
 }
 h5 {
-  font-size: 1.414rem;
+  font-size: 1.414rem !important;
 }
 small, .text_small {
-  font-size: 0.707rem;
+  font-size: 0.707rem !important;
 }
 p{
   //@extend h5;
-  font-variation-settings: 'wght' 375;
-  letter-spacing: .5px;
-  font-size: clamp(100%, 3.5vw, 1.414rem);
-  font-size: min(max(1rem, 3.5vw), 1.414rem);
+  font-variation-settings: 'wght' 375 !important;
+  letter-spacing: .5px !important;
+  font-size: clamp(100%, 3.5vw, 1.414rem) !important;
+  font-size: min(max(1rem, 3.5vw), 1.414rem) !important;
 }
 a {
-  color: inherit;
-  text-decoration: none;
+  color: inherit !important;
+  text-decoration: none !important;
 }
 
 ::selection{

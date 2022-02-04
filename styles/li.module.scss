@@ -1,0 +1,53 @@
+.LivingIdea{
+  //display: grid;
+  //grid: auto / .25fr .75fr ;//.25fr;
+  > * {
+    min-height: 100%;
+  }
+
+  article{
+    //background: red;
+  }
+}
+.toc{
+  //background: green;
+  min-width: 320px;
+}
+.visual{
+  //background: yellow;
+}
+
+.notionPage{
+  max-width: 70ch;
+
+  %readableText{
+    font-variation-settings: 'wght' 375 !important;
+    letter-spacing: .5px !important;
+    font-size: clamp(100%, 3.5vw, 1.14rem) !important;
+    font-size: min(max(1rem, 3.5vw), 1.14rem) !important;
+    line-height: 1.8;
+  }
+  main{
+    all: unset !important;
+    display: block;
+  }
+  h2, h3{ // h4 from global
+    font-size: 1.999rem !important;
+  }
+  li, p{
+    @extend %readableText;
+  }
+  figure{
+    max-width: 100%;
+    >div{
+      padding-bottom: 0 !important;
+    }
+  }
+
+  // taken from global
+  ::selection{
+    background: #333;
+    color: #fff;
+    text-shadow: none;
+  }
+}

@@ -37,7 +37,7 @@ export default function Home({data}) {
 
   return (
     <main>
-      <div className={styles.container}>
+      <article className={styles.container}>
 
         <h1 className={styles.title}>
           Traverse <span>in Space</span>
@@ -62,7 +62,7 @@ export default function Home({data}) {
         <SubscribeForm />
 
         { generateRenders() }
-      </div>
+      </article>
 
       {/*<footer className={styles.footer}>*/}
       {/*  <a href="https://lucaslorenzo.digital/" target="_blank" rel="noopener noreferrer">A project by Lucas Lorenzo Pena</a>*/}

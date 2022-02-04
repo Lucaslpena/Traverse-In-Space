@@ -16,8 +16,10 @@ export async function getStaticProps() {
   };
 }
 
-export default ({ blockMap }) => (
+const Sampler = ({ blockMap }) => (
   <div style={{ maxWidth: 768 }}>
     <NotionRenderer blockMap={blockMap} />
   </div>
 );
+
+export default Sampler;

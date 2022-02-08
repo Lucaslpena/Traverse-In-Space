@@ -7,25 +7,61 @@ import {
   fetchMasterDatabaseHeaders,
   lookupLinkDatabase
 } from '../../lib/NotionFetcher';
-import { RenderItemRow } from '../../components';
+import { RenderItemRow, ThumbnailRow } from '../../components';
 import { NotionRenderer } from "react-notion";
-import {ThumbnailRow} from '../../components/RenderItem';
+import { useInView } from 'react-intersection-observer';
+import {useCallback, useEffect, useRef, useState} from 'react';
 
-export default function li({pageData, livingIdea}) {
+const LinterDupe = () => {
+  return useInView(
+    { threshold: 0,
+      rootMargin: '-300px'}
+  );
+}
+
+const LI = ({pageData, livingIdea}) => {
+
+  const pageRefs = pageData.map(d => {
+    const { ref, inView, entry } = LinterDupe();
+    return({ ref, inView, entry})
+  })
+  const domRefs = useRef([])
+
+  const [article, setArticle] = useState(0)
+  useEffect(() => {
+    console.log({pageRefs})
+    if (pageRefs && pageRefs.some(x => x.inView === true)){
+      const currentPage = pageRefs.length - pageRefs.reverse().findIndex(x => x.inView === true)
+      if (currentPage !== article+1){
+        console.log(`changing to ${currentPage}`)
+        setArticle(currentPage-1)
+      }
+    }
+  }, [pageRefs]);
+
+  const scrollToPos = (articleNum) => {
+    console.log(articleNum)
+    console.log({dom: domRefs.current})
+    // domRefs.current[articleNum].scrollIntoView({behavior: 'smooth'});
+    window.scrollTo({top: domRefs.current[articleNum].offsetTop-(16 * 3), behavior: 'smooth'});
+    setArticle(articleNum)
+  }
 
   const generateText = () => (
     pageData.map((d, i) => (
-      <section key={i} className={styles.notionPage}>
-        <NotionRenderer blockMap={d.data}/>
+      <section
+        key={i}
+        className={styles.notionPage}
+        ref={pageRefs[i].ref}
+        // style={{backgroundColor: pageRefs[i].inView ? 'red' : 'green'}}
+      >
+        <div ref={ref=>domRefs.current.push(ref)} >
+          <h3>{d.title}</h3>
+          <NotionRenderer blockMap={d.data}/>
+        </div>
       </section>
     ))
   )
-
-
-//     <div className={styles.thumbnails} key={1}>
-//     <p>{d.title}</p>
-//   <p>{d.header.created}</p>
-// </div>
 
   const generateHeader = () => (
     <RenderItemRow
@@ -38,18 +74,27 @@ export default function li({pageData, livingIdea}) {
   )
 
   const generateThumbnails = () => (
-    pageData.map((d, i) =>
-      <ThumbnailRow title={d.title} created={d.header.created} key={i}/>
+    pageData.map((d, i) => {
+        // console.log(i)
+        return( <ThumbnailRow
+            title={d.title}
+            created={d.header.created}
+            key={i}
+            active={(article === i)}
+            clickCallback={() => scrollToPos(i)}
+          />
+        )
+      }
     )
   )
 
   return(
     <main className={styles.LivingIdea}>
       <aside className={styles.toc}>
-        <>
+        <section>
           {generateHeader()}
           {generateThumbnails()}
-          </>
+        </section>
       </aside>
       <article>
         { generateText() }
@@ -60,6 +105,7 @@ export default function li({pageData, livingIdea}) {
     </main>
   )
 }
+export default LI;
 
 export async function getStaticProps(context) {
   const pagesData = cleanDates(await fetchPagesDataFromSlug(context.params.li));

@@ -3,14 +3,7 @@ import { blackA } from '@radix-ui/colors';
 import * as LabelPrimitive from '@radix-ui/react-label';
 import styles from '../styles/RenderItem.module.scss'
 import {useState} from 'react';
-
-const StyledLabel = styled(LabelPrimitive.Root, {
-  fontSize: 14,
-  fontVariationSettings: `"wght" 650`,
-  color: blackA.blackA12,
-  userSelect: 'none',
-  letterSpacing: 2,
-});
+import { StyledLabel } from '.';
 
 function pad(num, size) {
   num = num.toString();
@@ -34,7 +27,7 @@ export const RenderItemRow = ({title, number, link, published, updated, children
         .{pad(number, 3)}
       </StyledLabel>
       <div>
-        <p>{title}</p>
+        <p style={{opacity: (published ? 1 : 0.4 ) }}>{title}</p>
         {children}
         {/*/!*{published ? *!/*/}
         {/*<StyledLabel>Soon to be public</StyledLabel>*/}
@@ -44,11 +37,15 @@ export const RenderItemRow = ({title, number, link, published, updated, children
   )
 }
 
-export const ThumbnailRow = ({title, created, current = false, ...props}) => {
+export const ThumbnailRow = ({title, created, active = false, clickCallback, ...props}) => {
   return(
-    <div className={styles.thumbnailTiles} {...props}>
+    <div
+      className={active ? styles.thumbnailTilesActive : styles.thumbnailTiles}
+      onClick={clickCallback}
+      {...props}
+    >
       <p>{title}</p>
-      <p>{created}</p>
+      <em>{created}</em>
     </div>
   )
 }

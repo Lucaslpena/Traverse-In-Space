@@ -2,18 +2,29 @@
 
 .LivingIdea{
   display: grid;
-  grid: auto / 300px minmax(min-content, 70ch) ;//.25fr;
+  grid: auto / 320px minmax(min-content, 70ch) ;//.25fr;
+  grid-column-gap: 3rem;
   > * {
     min-height: 100%;
   }
+  padding-top: max(3vh, 2rem);
 
   article{
-    //background: red;
+    >section:not(:last-of-type){
+      padding-top: 1rem;
+      margin-bottom: max(25vh, 4rem);
+    }
   }
 }
 .toc{
-  //background: green;
   min-width: 320px;
+  >section {
+    position: sticky;
+    top: 2rem;
+    > section {
+      padding-left: 2rem;
+    }
+  }
 }
 .visual{
   //background: yellow;
@@ -25,9 +36,15 @@
   main{
     all: unset !important;
     display: block;
+    hr{
+      background-color: $border-color !important;
+      width: 200px !important;
+      margin: 2ch 0;
+    }
   }
   h2, h3{ // h4 from global
     font-size: 1.999rem !important;
+    margin: 0 !important;
   }
   li, p{
     @extend %readableText;

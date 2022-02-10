@@ -21,6 +21,8 @@ body {
   background-image: linear-gradient(to bottom right, $background-color1 0%, $background-color2 100%);
   background-size: 500% 500%;
   animation: backgroundAnimation $background-transition--time $animation-curve infinite;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 * {

@@ -19,15 +19,15 @@ export default function Home({data}) {
   const generateRenders = () => {
     return(
       <div className={styles.content}>
-        <p><InfoCircledIcon/>&nbsp;Soon to be explored:</p>
+        <p><InfoCircledIcon/>&nbsp;Currently exploring:</p>
         <div>
           { data.map((o,i) => (
             <RenderItemRow
               key={i}
               title={o.name}
-              link={null}
+              link={o.slug || null}
               number={i}
-              published={o.published}
+              published={o.published === 'true'}
               updated={null}
             />))}
         </div>
@@ -56,7 +56,7 @@ export default function Home({data}) {
         </p>
 
         <p className={styles.description}>
-          Starting in 2022, this space will regularly communicate new living ideas and invite practitioners in intersubjective spaces to engage in a monthly discussion/workshop around a selected living idea.
+          This space will regularly communicates new living ideas and invite practitioners in intersubjective spaces to engage in a monthly discussion/workshop around a selected living idea.
         </p>
 
         <SubscribeForm />

@@ -7,10 +7,11 @@ import {
   fetchMasterDatabaseHeaders,
   lookupLinkDatabase
 } from '../../lib/NotionFetcher';
-import { RenderItemRow, ThumbnailRow } from '../../components';
+import {MobileNav, RenderItemRow, ThumbnailRow} from '../../components';
 import { NotionRenderer } from "react-notion";
 import { useInView } from 'react-intersection-observer';
 import {useCallback, useEffect, useRef, useState} from 'react';
+import { useWindowSize } from '../../lib/hooks';
 
 const LinterDupe = () => {
   return useInView(
@@ -19,29 +20,30 @@ const LinterDupe = () => {
   );
 }
 
-const LI = ({pageData, livingIdea}) => {
 
+const LI = ({pageData, livingIdea}) => {
+  const mobileBreakpoint = 1024; // ref from styles
   const pageRefs = pageData.map(d => {
     const { ref, inView, entry } = LinterDupe();
     return({ ref, inView, entry})
   })
   const domRefs = useRef([])
-
+  const size = useWindowSize()
   const [article, setArticle] = useState(0)
   useEffect(() => {
-    console.log({pageRefs})
+    // console.log({pageRefs})
     if (pageRefs && pageRefs.some(x => x.inView === true)){
       const currentPage = pageRefs.length - pageRefs.reverse().findIndex(x => x.inView === true)
       if (currentPage !== article+1){
-        console.log(`changing to ${currentPage}`)
+        // console.log(`changing to ${currentPage}`)
         setArticle(currentPage-1)
       }
     }
   }, [pageRefs]);
 
   const scrollToPos = (articleNum) => {
-    console.log(articleNum)
-    console.log({dom: domRefs.current})
+    // console.log(articleNum)
+    // console.log({dom: domRefs.current})
     // domRefs.current[articleNum].scrollIntoView({behavior: 'smooth'});
     window.scrollTo({top: domRefs.current[articleNum].offsetTop-(16 * 3), behavior: 'smooth'});
     setArticle(articleNum)
@@ -56,7 +58,7 @@ const LI = ({pageData, livingIdea}) => {
         // style={{backgroundColor: pageRefs[i].inView ? 'red' : 'green'}}
       >
         <div ref={ref=>domRefs.current.push(ref)} >
-          <h3>{d.title}</h3>
+          <h1>{d.title}</h1>
           <NotionRenderer blockMap={d.data}/>
         </div>
       </section>
@@ -74,27 +76,37 @@ const LI = ({pageData, livingIdea}) => {
   )
 
   const generateThumbnails = () => (
-    pageData.map((d, i) => {
-        // console.log(i)
-        return( <ThumbnailRow
-            title={d.title}
-            created={d.header.created}
-            key={i}
-            active={(article === i)}
-            clickCallback={() => scrollToPos(i)}
-          />
-        )
-      }
+    pageData.map((d, i) => <ThumbnailRow
+        title={d.title}
+        created={d.header.created}
+        key={i}
+        active={(article === i)}
+        clickCallback={() => scrollToPos(i)}
+      />
     )
+  )
+
+  const generateMobileThumbnails = () => (
+    <MobileNav
+      current={article}
+      items={pageData}
+      onChange={(v) => scrollToPos(v) }
+    />
   )
 
   return(
     <main className={styles.LivingIdea}>
       <aside className={styles.toc}>
-        <section>
-          {generateHeader()}
-          {generateThumbnails()}
-        </section>
+        { (size.width > mobileBreakpoint) ?
+          <section>
+            {generateHeader()}
+            {generateThumbnails()}
+          </section>
+          :
+          <section>
+            {generateMobileThumbnails()}
+          </section>
+        }
       </aside>
       <article>
         { generateText() }

@@ -1,0 +1,28 @@
+.MobileNavContainer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100vw - 4rem);
+  //overflow: hidden;
+  //position: fixed;
+  //top: 60px + 32px; // todo --make this dynamic
+
+  label:first-of-type{
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.RadioGroup{
+  display: flex;
+  > button{
+    margin: 0 .125rem;
+  }
+}
+.radioContainer{
+  display: flex;
+  margin: 10px 0;
+  align-items: center;
+}

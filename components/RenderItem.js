@@ -4,6 +4,7 @@ import * as LabelPrimitive from '@radix-ui/react-label';
 import styles from '../styles/RenderItem.module.scss'
 import {useState} from 'react';
 import { StyledLabel } from '.';
+import { useRouter } from 'next/router'
 
 function pad(num, size) {
   num = num.toString();
@@ -12,11 +13,14 @@ function pad(num, size) {
 }
 
 export const RenderItemRow = ({title, number, link, published, updated, children, ...props}) => {
+  const router = useRouter()
   const [isHovering, setIsHovering] = useState(false)
+
   return(
     <section
       {...props}
-      className={styles.renderTitles}
+      className={published ? styles.renderTitlesPublished : styles.renderTitles}
+      onClick={(published && link) ? () => router.push(`/li/${link}`) : null}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >

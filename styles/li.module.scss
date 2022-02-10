@@ -1,13 +1,33 @@
-@import '_vars';
+@import 'theme';
+
+$mobileBreakpoint: 1024px;
+
 
 .LivingIdea{
   display: grid;
-  grid: auto / 320px minmax(min-content, 70ch) ;//.25fr;
-  grid-column-gap: 3rem;
+  grid: auto / 275px 75ch;
+  grid-column-gap: 4rem;
   > * {
     min-height: 100%;
   }
   padding-top: max(3vh, 2rem);
+
+  background: red;
+
+
+  @include media("<=1250px") {
+    display: grid;
+    grid: auto / 275px 60ch !important;
+    grid-column-gap: 2rem !important;
+    background: green !important;
+  }
+  @include media("<=1023px") {
+    display: grid;
+    //grid: auto / 275px 60ch !important;
+    grid: 60px auto / auto !important;
+    grid-column-gap: unset !important;
+    background: yellow !important;
+  }
 
   article{
     >section:not(:last-of-type){
@@ -17,12 +37,11 @@
   }
 }
 .toc{
-  min-width: 320px;
   >section {
     position: sticky;
     top: 2rem;
     > section {
-      padding-left: 2rem;
+      padding-left: 1rem;
     }
   }
 }
@@ -31,8 +50,6 @@
 }
 
 .notionPage{
-  max-width: 70ch;
-
   main{
     all: unset !important;
     display: block;
@@ -41,6 +58,10 @@
       width: 200px !important;
       margin: 2ch 0;
     }
+  }
+  h1{
+    font-size: 2.827rem !important;
+    margin: 0 !important;
   }
   h2, h3{ // h4 from global
     font-size: 1.999rem !important;
@@ -51,6 +72,9 @@
   }
   figure{
     max-width: 100%;
+    @include media("<=1024px") {
+      width: 100% !important;
+    }
     >div{
       padding-bottom: 0 !important;
     }

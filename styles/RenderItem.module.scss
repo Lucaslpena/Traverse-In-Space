@@ -16,6 +16,10 @@
     margin: .5rem 0;
   }
 }
+.renderTitlesPublished{
+  @extend .renderTitles;
+  cursor: pointer;
+}
 
 .ExpandingLabel{
   display: inline;
@@ -41,7 +45,7 @@
 .thumbnailTiles{
   cursor: pointer;
   padding: 1rem;
-  margin: 1rem;
+  margin: 1rem 0;
   border: $border-width $border-color solid;
   transition: all .25s ease-in;
   border-radius: 1.2rem;

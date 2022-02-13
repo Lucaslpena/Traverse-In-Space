@@ -3,12 +3,11 @@ import '../styles/globals.scss'
 import 'react-notion-x/src/styles.css'
 import { IdProvider } from '@radix-ui/react-id';
 import {TopBar} from '../components';
-
+import { MobileHeaderProvider } from '../lib/MobileHeaderContext';
 
 function App({ Component, pageProps }) {
   return(
     <>
-
       <Head>
         <title>Traverse in Space</title>
         {/* todo -- meta  tags here*/}
@@ -28,9 +27,10 @@ function App({ Component, pageProps }) {
         />
       </Head>
       <IdProvider>
-
+        <MobileHeaderProvider>
           <TopBar />
           <Component {...pageProps} />
+        </MobileHeaderProvider>
       </IdProvider>
     </>
   )

@@ -1,9 +1,29 @@
+@import 'theme';
+
 .MobileNavContainer{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: calc(100vw - 4rem);
+  //z-index: 200;
+
+  @include media("<=1023px") {
+    position: fixed;
+    top: calc(#{$topbar} + 2rem) !important;
+    left: 0;
+    width: calc(100vw);
+    padding: 0 $page-gutter;
+  }
+  @include media("<=880px") {
+    position: fixed;
+    top: calc(#{$topbar-mobile} + 2rem) !important;
+    left: 0;
+    width: calc(100vw);
+    padding: 0 $page-gutter-mobile;
+  }
+
+
+  //width: calc(100vw - 4rem);
   //overflow: hidden;
   //position: fixed;
   //top: 60px + 32px; // todo --make this sticky

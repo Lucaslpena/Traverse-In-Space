@@ -12,6 +12,10 @@ import { NotionRenderer } from "react-notion";
 import { useInView } from 'react-intersection-observer';
 import {useCallback, useEffect, useRef, useState} from 'react';
 import { useWindowSize } from '../../lib/hooks';
+import {
+  useMobileHeaderUpdateContext,
+  // useMobileNavUpdateContext,
+} from '../../lib/MobileHeaderContext';
 
 const LinterDupe = () => {
   return useInView(
@@ -20,8 +24,8 @@ const LinterDupe = () => {
   );
 }
 
-
 const LI = ({pageData, livingIdea}) => {
+
   const mobileBreakpoint = 1024; // ref from styles
   const pageRefs = pageData.map(d => {
     const { ref, inView, entry } = LinterDupe();
@@ -30,6 +34,13 @@ const LI = ({pageData, livingIdea}) => {
   const domRefs = useRef([])
   const size = useWindowSize()
   const [article, setArticle] = useState(0)
+  const setMobileHeader = useMobileHeaderUpdateContext()
+  // const setMobileNav = useMobileNavUpdateContext()
+
+  useEffect(() => {
+    setMobileHeader(livingIdea.meta)
+    return(() => setMobileHeader(''))
+  },[])
   useEffect(() => {
     // console.log({pageRefs})
     if (pageRefs && pageRefs.some(x => x.inView === true)){
@@ -40,6 +51,14 @@ const LI = ({pageData, livingIdea}) => {
       }
     }
   }, [pageRefs]);
+  // useEffect(() => {
+  //   if (size.width <=  mobileBreakpoint){
+  //    setMobileNav(generateMobileThumbnails())
+  //   }
+  //   return() => {
+  //     setMobileNav(null)
+  //   }
+  // }, [size])
 
   const scrollToPos = (articleNum) => {
     // console.log(articleNum)
@@ -104,7 +123,7 @@ const LI = ({pageData, livingIdea}) => {
           </section>
           :
           <section>
-            {generateMobileThumbnails()}
+            {/*{generateMobileThumbnails()}*/}
           </section>
         }
       </aside>

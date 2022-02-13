@@ -1,8 +1,14 @@
 import styles from '../styles/TopBar.module.scss'
 import { useRouter } from 'next/router'
+import {
+  useMobileHeaderContext,
+  // useMobileNavContext
+} from '../lib/MobileHeaderContext';
 
 export const TopBar = () => {
   const router = useRouter()
+  const mobileHeaderValue = useMobileHeaderContext();
+  // const mobileNav = useMobileNavContext();
 
   return(
     <div className={styles.TopBar}>
@@ -34,6 +40,10 @@ export const TopBar = () => {
           <path stroke="#4C4C4C" strokeLinecap="square" d="M20 9.5v5M4 9.5v5"/>
         </g>
       </svg>
+      <div>
+        <h5>{mobileHeaderValue}</h5>
+        {/*{mobileNav}*/}
+      </div>
       <a href={"https://www.lucaslorenzo.digital"} target="_blank" rel="noreferrer">by Lucas Lorenzo Pe&ntilde;a</a>
     </div>
   )

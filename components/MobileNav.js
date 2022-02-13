@@ -20,7 +20,7 @@ export const MobileNav = ({onChange, items, current}) => {
     height: 25,
     borderRadius: '100%',
     boxShadow: `0 2px 10px ${blackA.blackA7}`,
-    '&:hover': { backgroundColor: violet.violet3 },
+    '&:hover': { backgroundColor: blackA.blackA },
     '&:focus': { boxShadow: `0 0 0 2px black` },
   });
   const StyledIndicator = styled(RadioGroupPrimitive.Indicator, {
@@ -36,7 +36,7 @@ export const MobileNav = ({onChange, items, current}) => {
       width: 11,
       height: 11,
       borderRadius: '50%',
-      backgroundColor: violet.violet11,
+      backgroundColor: blackA.blackA11,
     },
   });
 

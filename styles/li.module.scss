@@ -8,25 +8,24 @@ $mobileBreakpoint: 1024px;
   grid: auto / 275px 75ch;
   grid-column-gap: 4rem;
   > * {
-    min-height: 100%;
+    height: 100%;
   }
   padding-top: max(3vh, 2rem);
-
-  background: red;
-
 
   @include media("<=1250px") {
     display: grid;
     grid: auto / 275px 60ch !important;
     grid-column-gap: 2rem !important;
-    background: green !important;
   }
   @include media("<=1023px") {
     display: grid;
     //grid: auto / 275px 60ch !important;
-    grid: 60px auto / auto !important;
+    grid: min-content auto / auto !important;
     grid-column-gap: unset !important;
-    background: yellow !important;
+    //background: yellow !important;
+    > * {
+      height: initial;
+    }
   }
 
   article{
@@ -35,16 +34,31 @@ $mobileBreakpoint: 1024px;
       margin-bottom: max(25vh, 4rem);
     }
   }
+  @include media("<=1023px") {
+  }
 }
 .toc{
   >section {
     position: sticky;
     top: 2rem;
+    z-index: 2;
     > section {
       padding-left: 1rem;
     }
   }
+  @include media("<=1023px") {
+    >section {
+      padding: 1rem 0;
+    }
+    //>section {
+    //  position: fixed;
+      //top: calc(#{$topbar} + 2rem);
+      //left: 2rem;
+    //}
+  }
 }
+
+
 .visual{
   //background: yellow;
 }

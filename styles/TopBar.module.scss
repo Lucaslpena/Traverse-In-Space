@@ -1,5 +1,6 @@
 @import "theme";
 .TopBar{
+  z-index: 100;
   box-sizing: border-box;
   height: $topbar;
   padding: 1rem $page-gutter;
@@ -7,11 +8,21 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: $border-width solid $border-color;
   //position: sticky;
   //top: 0;
   svg{
     height: 100%;
+    cursor: pointer;
+  }
+
+  >div{
+    flex-grow: 1;
+    min-width: 0;
+    * {
+      margin: 0 !important;
+      padding-left: 2rem;
+    }
   }
 
   @include media("<=880px") {

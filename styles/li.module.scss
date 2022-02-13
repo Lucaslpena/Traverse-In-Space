@@ -1,0 +1,103 @@
+@import 'theme';
+
+$mobileBreakpoint: 1024px;
+
+
+.LivingIdea{
+  display: grid;
+  grid: auto / 275px 75ch;
+  grid-column-gap: 4rem;
+  > * {
+    height: 100%;
+  }
+  padding-top: max(3vh, 2rem);
+
+  @include media("<=1250px") {
+    display: grid;
+    grid: auto / 275px 60ch !important;
+    grid-column-gap: 2rem !important;
+  }
+  @include media("<=1023px") {
+    display: grid;
+    //grid: auto / 275px 60ch !important;
+    grid: min-content auto / auto !important;
+    grid-column-gap: unset !important;
+    //background: yellow !important;
+    > * {
+      height: initial;
+    }
+  }
+
+  article{
+    >section:not(:last-of-type){
+      padding-top: 1rem;
+      margin-bottom: max(25vh, 4rem);
+    }
+  }
+  @include media("<=1023px") {
+  }
+}
+.toc{
+  >section {
+    position: sticky;
+    top: 2rem;
+    z-index: 2;
+    > section {
+      padding-left: 1rem;
+    }
+  }
+  @include media("<=1023px") {
+    >section {
+      padding: 1rem 0;
+    }
+    //>section {
+    //  position: fixed;
+      //top: calc(#{$topbar} + 2rem);
+      //left: 2rem;
+    //}
+  }
+}
+
+
+.visual{
+  //background: yellow;
+}
+
+.notionPage{
+  main{
+    all: unset !important;
+    display: block;
+    hr{
+      background-color: $border-color !important;
+      width: 200px !important;
+      margin: 2ch 0;
+    }
+  }
+  h1{
+    font-size: 2.827rem !important;
+    margin: 0 !important;
+  }
+  h2, h3{ // h4 from global
+    font-size: 1.999rem !important;
+    margin: 0 !important;
+  }
+  li, p{
+    @extend %readableText;
+  }
+  figure{
+    max-width: 100%;
+    @include media("<=1024px") {
+      width: 100% !important;
+    }
+    >div{
+      padding-bottom: 0 !important;
+    }
+  }
+
+  // taken from global
+  ::selection{
+    background: #333;
+    color: #fff;
+    text-shadow: none;
+  }
+}

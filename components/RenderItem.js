@@ -3,14 +3,8 @@ import { blackA } from '@radix-ui/colors';
 import * as LabelPrimitive from '@radix-ui/react-label';
 import styles from '../styles/RenderItem.module.scss'
 import {useState} from 'react';
-
-const StyledLabel = styled(LabelPrimitive.Root, {
-  fontSize: 14,
-  fontVariationSettings: `"wght" 650`,
-  color: blackA.blackA12,
-  userSelect: 'none',
-  letterSpacing: 2,
-});
+import { StyledLabel } from '.';
+import { useRouter } from 'next/router'
 
 function pad(num, size) {
   num = num.toString();
@@ -18,12 +12,15 @@ function pad(num, size) {
   return num;
 }
 
-export const RenderItemRow = ({title, number, link, published, updated, ...props}) => {
+export const RenderItemRow = ({title, number, link, published, updated, children, ...props}) => {
+  const router = useRouter()
   const [isHovering, setIsHovering] = useState(false)
+
   return(
     <section
       {...props}
-      className={styles.renderTitles}
+      className={published ? styles.renderTitlesPublished : styles.renderTitles}
+      onClick={(published && link) ? () => router.push(`/li/${link}`) : null}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
@@ -34,11 +31,25 @@ export const RenderItemRow = ({title, number, link, published, updated, ...props
         .{pad(number, 3)}
       </StyledLabel>
       <div>
-      <p>{title}</p>
-      {/*/!*{published ? *!/*/}
-      {/*<StyledLabel>Soon to be public</StyledLabel>*/}
-      {/*/!*}*!/*/}
+        <p style={{opacity: (published ? 1 : 0.4 ) }}>{title}</p>
+        {children}
+        {/*/!*{published ? *!/*/}
+        {/*<StyledLabel>Soon to be public</StyledLabel>*/}
+        {/*/!*}*!/*/}
       </div>
     </section>
+  )
+}
+
+export const ThumbnailRow = ({title, created, active = false, clickCallback, ...props}) => {
+  return(
+    <div
+      className={active ? styles.thumbnailTilesActive : styles.thumbnailTiles}
+      onClick={clickCallback}
+      {...props}
+    >
+      <p>{title}</p>
+      <em>{created}</em>
+    </div>
   )
 }

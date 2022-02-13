@@ -9,12 +9,16 @@
     border-bottom: none !important;
   }
   p{
-    opacity: 0.4;
+    //opacity: 0.4;
     line-height: 1.5;
     font-size: 1.414rem;
     max-width: 55ex;
     margin: .5rem 0;
   }
+}
+.renderTitlesPublished{
+  @extend .renderTitles;
+  cursor: pointer;
 }
 
 .ExpandingLabel{
@@ -36,4 +40,24 @@
   &:after{
     width: 9.5ch;
   }
+}
+
+.thumbnailTiles{
+  cursor: pointer;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: $border-width $border-color solid;
+  transition: all .25s ease-in;
+  border-radius: 1.2rem;
+  em{
+    font-style: normal;
+  }
+  p{
+    margin: 0 0 1rem 0;
+  }
+}
+.thumbnailTilesActive{
+  @extend .thumbnailTiles;
+  border: $border-width $font-color--dark solid;
+
 }

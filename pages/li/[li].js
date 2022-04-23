@@ -16,6 +16,8 @@ import {
   useMobileHeaderUpdateContext,
   // useMobileNavUpdateContext,
 } from '../../lib/MobileHeaderContext';
+import { useRouter } from 'next/router'
+
 
 const LinterDupe = () => {
   return useInView(
@@ -25,7 +27,6 @@ const LinterDupe = () => {
 }
 
 const LI = ({pageData, livingIdea}) => {
-
   const mobileBreakpoint = 1024; // ref from styles
   const pageRefs = pageData.map(d => {
     const { ref, inView, entry } = LinterDupe();
@@ -33,14 +34,26 @@ const LI = ({pageData, livingIdea}) => {
   })
   const domRefs = useRef([])
   const size = useWindowSize()
-  const [article, setArticle] = useState(0)
   const setMobileHeader = useMobileHeaderUpdateContext()
   // const setMobileNav = useMobileNavUpdateContext()
+  const router = useRouter();
+  const [article, setArticle] = useState(router.query['r'] || 0)
+
+  // debugger;
+
 
   useEffect(() => {
     setMobileHeader(livingIdea.meta)
     return(() => setMobileHeader(''))
   },[])
+  // useEffect(() => {
+  //   if (router.query && router.query['r']){
+  //     console.log('query!')
+  //     console.log({...router})
+  //     scrollToPos(parseInt(router.query['r']))
+  //     // setArticle(parseInt(router.query['r']))
+  //   }
+  // },[])
   useEffect(() => {
     // console.log({pageRefs})
     if (pageRefs && pageRefs.some(x => x.inView === true)){
@@ -60,10 +73,12 @@ const LI = ({pageData, livingIdea}) => {
   //   }
   // }, [size])
 
+  useEffect(() => {
+    // const corePath = router.asPath.split('?')[0]
+    // router.replace(`${corePath}/?r=${article}`, undefined, { scroll: false, shallow: true })
+  }, [article])
+
   const scrollToPos = (articleNum) => {
-    // console.log(articleNum)
-    // console.log({dom: domRefs.current})
-    // domRefs.current[articleNum].scrollIntoView({behavior: 'smooth'});
     window.scrollTo({top: domRefs.current[articleNum].offsetTop-(16 * 3), behavior: 'smooth'});
     setArticle(articleNum)
   }
